@@ -15,7 +15,12 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-COPY koalixcrmprod/* /usr/src/app
+COPY koalixcrmprod/settings /usr/src/app
+COPY dashboard.py /usr/src/app
+COPY manage.py /usr/src/app
+COPY urls.py /usr/src/app
+COPY wsgi.py /usr/src/app
+COPY __init__.py /usr/src/app
 
 # Install dependencies
 RUN pip install --upgrade pip

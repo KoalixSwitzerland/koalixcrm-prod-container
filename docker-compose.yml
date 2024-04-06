@@ -23,6 +23,7 @@ services:
       - SQL_HOST=db
       - SQL_PORT=5432
       - SECRET_KEY=SECRETKEYOFYOURCHOICE
+      - DJANGO_ALLOWED_HOSTS=localhost 0.0.0.0
     depends_on:
       - db
 volumes:

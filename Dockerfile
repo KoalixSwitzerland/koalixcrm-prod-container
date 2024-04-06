@@ -41,12 +41,11 @@ RUN tar -xzf fop-2.9-bin.tar.gz -C /usr/bin
 RUN rm fop-2.9-bin.tar.gz
 RUN chmod 755 /usr/bin/fop-2.9/fop/fop
 
-# Set JAVA_HOME environment variable
 ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
 ENV DJANGO_SETTINGS_MODULE=settings.production_docker_postgres_settings
 
 # Collect static files
-RUN python manage.py collectstatic --no-input
+RUN python manage.py collectstatic --no-input --settings=settings.production_docker_postgres_settings
 
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/sites-enabled/default

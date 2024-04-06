@@ -14,21 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 
-from django.urls import path
+from django.conf.urls import include
 from django.conf.urls.static import *
-from django.contrib.staticfiles.urls import static
 from django.contrib import admin
+from django.contrib.staticfiles.urls import static
 from django.shortcuts import redirect
-from django.conf.urls import include, url
+from django.urls import path
 from filebrowser.sites import site
-from rest_framework import routers
-
 from koalixcrm.accounting.rest.restinterface import AccountAsJSON, AccountingPeriodAsJSON, BookingAsJSON, \
     ProductCategoryAsJSON
 from koalixcrm.crm.rest.restinterface import ContractAsJSON, CurrencyAsJSON, ProductAsJSON, ProjectAsJSON, TaskAsJSON, \
     TaskStatusAsJSON, TaxAsJSON, UnitAsJSON, CustomerGroupAsJSON, CustomerBillingCycleAsJSON, \
     CustomerAsJSON, ContactPostalAddressAsJSON, ContactEmailAddressAsJSON, ContactPhoneAddressAsJSON, \
     ProjectStatusAsJSON
+from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'accounts', AccountAsJSON)

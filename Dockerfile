@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-COPY koalixcrmprod /usr/src/app
+COPY koalixcrmprod/* /usr/src/app
 
 # Install dependencies
 RUN pip install --upgrade pip

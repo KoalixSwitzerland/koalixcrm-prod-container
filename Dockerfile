@@ -15,6 +15,8 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
+COPY koalixcrm /usr/src/app/koalixcrm
+
 # Install dependencies
 RUN pip install --upgrade pip
 COPY requirements.txt /usr/src/app/
@@ -33,4 +35,4 @@ ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
 EXPOSE 8000
 
 # Command to run the Django development server
-CMD python manage.py migrate && gunicorn --bind :8000 koalixcrm.wsgi
+CMD python manage.py koalixcrm/migrate && gunicorn --bind :8000 wsgi

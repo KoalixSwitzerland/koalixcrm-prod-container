@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     tar \
     openjdk-17-jdk \
     netcat-openbsd \
-    nginx \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
@@ -44,14 +43,8 @@ RUN chmod 755 /usr/bin/fop-2.9/fop/fop
 ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
 ENV DJANGO_SETTINGS_MODULE=settings.production_docker_postgres_settings
 
-# Collect static files
-RUN python manage.py collectstatic --no-input
-
-# Copy the Nginx configuration file
-COPY nginx.conf /etc/nginx/sites-enabled/default
-
 # Port to expose
 EXPOSE 80
 
 # Command to run the Django development server
-CMD python manage.py migrate && gunicorn --bind :8000 wsgi
+CMD python manage.py migrate && python manage.py collectstatic --no-input && gunicorn --bind :8000 wsgi

@@ -23,7 +23,7 @@ RUN mkdir -p /usr/src/app/media /usr/src/app/static
 RUN chown -R www-data:www-data /usr/src/app/media /usr/src/app/static
 
 
-COPY settings /usr/src/app
+COPY settings /usr/src/app/settings
 COPY dashboard.py /usr/src/app
 COPY manage.py /usr/src/app
 COPY urls.py /usr/src/app
@@ -45,7 +45,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
 ENV DJANGO_SETTINGS_MODULE=settings.production_docker_postgres_settings
 
 # Collect static files
-RUN python manage.py collectstatic --no-input --settings=settings.production_docker_postgres_settings
+RUN python manage.py collectstatic --no-input
 
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/sites-enabled/default

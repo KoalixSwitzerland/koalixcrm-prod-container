@@ -11,8 +11,6 @@ services:
 
   web:
     image: ghcr.io/koalixswitzerland/koalixcrm-prod-container:main
-    volumes:
-      - .:/usr/src/app/
     ports:
       - "8000:8000"
     environment:

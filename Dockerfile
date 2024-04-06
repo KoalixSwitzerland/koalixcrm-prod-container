@@ -30,6 +30,7 @@ RUN chmod 755 /usr/bin/fop-2.9/fop/fop
 
 # Set JAVA_HOME environment variable
 ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+ENV DJANGO_SETTINGS_MODULE=koalixcrm-prod.settings.production_docker_postgres_settings
 
 # Port to expose
 EXPOSE 8000

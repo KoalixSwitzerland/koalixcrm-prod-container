@@ -20,6 +20,7 @@ services:
       - SQL_PORT=5432
       - SECRET_KEY=SECRETKEYOFYOURCHOICE
       - DJANGO_ALLOWED_HOSTS=localhost 0.0.0.0 127.0.0.1
+      - DEBUG=True
     volumes:
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
@@ -31,7 +32,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
     depends_on:

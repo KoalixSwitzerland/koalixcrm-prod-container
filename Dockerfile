@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-COPY koalixcrmprod /usr/src/app/koalixcrmprod
+COPY koalixcrmprod /usr/src/app
 
 # Install dependencies
 RUN pip install --upgrade pip
@@ -36,4 +36,4 @@ ENV DJANGO_SETTINGS_MODULE=settings.production_docker_postgres_settings
 EXPOSE 8000
 
 # Command to run the Django development server
-CMD python koalixcrmprod/manage.py migrate && gunicorn --bind :8000 koalixcrmprod.wsgi
+CMD python manage.py migrate && gunicorn --bind :8000 wsgi

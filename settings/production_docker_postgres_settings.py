@@ -4,7 +4,7 @@ Django settings for koalixcrm project when used in productive environment.
 
 from .base_settings import *
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY", "SECRET_KEY")
 
 DEBUG = bool(os.environ.get("DEBUG", default=0))
 

@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     tar \
     openjdk-17-jdk \
-    netcat \
+    netcat-openbsd \
     nginx \
     && rm -rf /var/lib/apt/lists/*
 

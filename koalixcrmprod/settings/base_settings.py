@@ -45,7 +45,7 @@ MIDDLEWARE = [
     'koalixcrm.crm.middleware.timezoneMiddleware.TimezoneMiddleware',
 ]
 
-ROOT_URLCONF = 'settings.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -63,7 +63,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'settings.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Password validation

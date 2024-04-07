@@ -25,6 +25,7 @@ RUN chown -R www-data:www-data /usr/src/app/media /usr/src/app/static
 COPY settings /usr/src/app/settings
 COPY dashboard.py /usr/src/app
 COPY manage.py /usr/src/app
+COPY version.py /usr/src/app
 COPY urls.py /usr/src/app
 COPY wsgi.py /usr/src/app
 COPY __init__.py /usr/src/app
@@ -47,4 +48,4 @@ ENV DJANGO_SETTINGS_MODULE=settings.production_docker_postgres_settings
 EXPOSE 80
 
 # Command to run the Django development server
-CMD python manage.py migrate && python manage.py collectstatic --no-input && gunicorn --bind :8000 wsgi
+CMD python manage.py migrate && python manage.py collectstatic --no-input && chown -R www-data: /usr/src/app/media && gunicorn --bind :8000 wsgi

@@ -1,2 +1,2 @@
-koalix-crm==1.14.0-rc1
+koalix-crm==1.14.0-rc2
 gunicorn==21.2.0

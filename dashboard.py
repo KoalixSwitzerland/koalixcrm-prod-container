@@ -9,6 +9,7 @@ To activate your index dashboard add the following to your settings.py::
 from django.utils.translation import gettext_lazy as _
 from grappelli.dashboard import modules, Dashboard
 from koalixcrm.version import KOALIXCRM_VERSION
+from version import KOALIXCRM_DOCKER_VERSION
 
 
 class CustomIndexDashboard(Dashboard):
@@ -18,7 +19,7 @@ class CustomIndexDashboard(Dashboard):
 
     def init_with_context(self, context):
         self.children.append(modules.Group(
-            _('koalixcrm Version' + KOALIXCRM_VERSION),
+            _('koalixcrm Version ' + KOALIXCRM_VERSION + 'koalixcrm Docker Version ' + KOALIXCRM_DOCKER_VERSION),
             column=1,
             collapsible=True,
             children=[

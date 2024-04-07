@@ -24,6 +24,7 @@ services:
     volumes:
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
+      - media_uploads_volume:/usr/src/app/media/uploads
     depends_on:
       - db
 
@@ -35,6 +36,7 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - static_volume:/usr/src/app/static
       - media_volume:/usr/src/app/media
+      - media_uploads_volume:/usr/src/app/media/uploads
     depends_on:
       - web
 
@@ -42,3 +44,4 @@ volumes:
   postgres_data: {}
   static_volume: {}
   media_volume: {}
+  media_uploads_volume: {}

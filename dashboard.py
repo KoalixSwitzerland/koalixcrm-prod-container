@@ -19,7 +19,7 @@ class CustomIndexDashboard(Dashboard):
 
     def init_with_context(self, context):
         self.children.append(modules.Group(
-            _('koalixcrm Version ' + KOALIXCRM_VERSION + 'koalixcrm Docker Version ' + KOALIXCRM_DOCKER_VERSION),
+            _('koalixcrm Version ' + KOALIXCRM_VERSION + ' / koalixcrm Docker Version ' + KOALIXCRM_DOCKER_VERSION),
             column=1,
             collapsible=True,
             children=[
